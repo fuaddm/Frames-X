@@ -1,0 +1,7 @@
+{
+  "editor.inlineSuggest.showToolbar": "onHover",
+  "editor.inlineSuggest.enabled": true,
+  "editor.acceptSuggestionOnCommitCharacter": true,
+  "editor.snippetSuggestions": "inline",
+  "editor.quickSuggestionsDelay": 10
+}

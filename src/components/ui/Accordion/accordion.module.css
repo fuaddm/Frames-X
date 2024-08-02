@@ -1,0 +1,15 @@
+.appear {
+  opacity: 0;
+}
+.accordion:has(:checked) .appear {
+  animation: appear 150ms;
+  opacity: 1;
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
