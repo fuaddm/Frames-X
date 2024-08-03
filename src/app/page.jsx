@@ -1,6 +1,7 @@
 import { Accordion } from '@/components/ui/Accordion/Accordion.jsx';
-import Avatar from '@/components/ui/Avatar/Avatar';
-import Divider from '@/components/ui/Divider/Divider';
+import { Avatar } from '@/components/ui/Avatar/Avatar';
+import { Divider } from '@/components/ui/Divider/Divider';
+import { Button } from '@/components/ui/Button/Button';
 
 export default function Home() {
   return (
@@ -39,6 +40,94 @@ export default function Home() {
           src="https://avatars.githubusercontent.com/u/113819802?v=4"
           name="Fuad Demirchiyev"
         />
+        <div className="flex gap-2">
+          <Button
+            type="primary"
+            size="small">
+            Button
+          </Button>
+          <Button
+            type="secondary"
+            size="small">
+            Button
+          </Button>
+          <Button
+            type="ghost"
+            size="small">
+            Button
+          </Button>
+          <Button
+            type="destructive"
+            size="small">
+            Button
+          </Button>
+        </div>
+        <div className="flex gap-2">
+          <Button
+            type="primary"
+            size="default">
+            Button
+          </Button>
+          <Button
+            type="secondary"
+            size="default">
+            Button
+          </Button>
+          <Button
+            type="ghost"
+            size="default">
+            Button
+          </Button>
+          <Button
+            type="destructive"
+            size="default">
+            Button
+          </Button>
+        </div>
+        <div className="flex gap-2">
+          <Button
+            type="primary"
+            size="large">
+            Button
+          </Button>
+          <Button
+            type="secondary"
+            size="large">
+            Button
+          </Button>
+          <Button
+            type="ghost"
+            size="large">
+            Button
+          </Button>
+          <Button
+            type="destructive"
+            size="large">
+            Button
+          </Button>
+        </div>
+        <div className="flex gap-2">
+          <Button
+            type="primary"
+            size="xl">
+            Button
+          </Button>
+          <Button
+            type="secondary"
+            size="xl">
+            Button
+          </Button>
+          <Button
+            type="ghost"
+            size="xl">
+            Button
+          </Button>
+          <Button
+            type="destructive"
+            size="xl">
+            Button
+          </Button>
+        </div>
       </div>
     </div>
   );

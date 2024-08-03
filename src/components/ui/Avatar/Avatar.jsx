@@ -131,4 +131,4 @@ const Avatar = ({
   );
 };
 
-export default Avatar;
+export { Avatar };
