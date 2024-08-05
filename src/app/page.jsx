@@ -2,6 +2,7 @@ import { Accordion } from '@/components/ui/Accordion/Accordion.jsx';
 import { Avatar } from '@/components/ui/Avatar/Avatar';
 import { Divider } from '@/components/ui/Divider/Divider';
 import { Button } from '@/components/ui/Button/Button';
+import { Input } from '@/components/ui/Input/Input';
 
 export default function Home() {
   return (
@@ -128,6 +129,37 @@ export default function Home() {
             Button
           </Button>
         </div>
+        <Input
+          placeholder="Text"
+          classNames="w-full"
+        />
+        <Input
+          placeholder="Text"
+          size="sm"
+        />
+        <Input
+          placeholder="Text"
+          size="md"
+        />
+        <Input
+          placeholder="Text"
+          size="lg"
+        />
+        <Input
+          placeholder="Text"
+          size="sm"
+          isDisabled={true}
+        />
+        <Input
+          placeholder="Text"
+          size="md"
+          isDisabled={true}
+        />
+        <Input
+          placeholder="Text"
+          size="lg"
+          isDisabled={true}
+        />
       </div>
     </div>
   );

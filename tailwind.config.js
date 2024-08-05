@@ -285,6 +285,7 @@ module.exports = {
         '0px 16px 64px -12px rgba(26, 26, 26, 0.12), 0px 2.5px 3px 2px rgba(26, 26, 26, 0.08)',
       flat: '0px 1px 0px 0px rgba(225, 225, 226, 1)',
       in: 'inset 0px 2px 4px 0px rgba(26, 26, 26, 0.12)',
+      none: '0 0 #0000',
     },
   },
   plugins: [],

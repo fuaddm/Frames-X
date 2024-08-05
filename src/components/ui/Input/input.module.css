@@ -1,0 +1,15 @@
+.input {
+  @apply rounded-xl bg-alpha-light-900 font-medium placeholder-alpha-dark-700 caret-blue-600 shadow-sm outline outline-1 outline-offset-0 outline-gray-200 hover:bg-gray-100 hover:placeholder-alpha-dark-900 hover:shadow-m hover:outline-2 focus:bg-gray-50 focus:placeholder-alpha-dark-400 focus:outline-2 focus:outline-blue-300;
+}
+.sm {
+  @apply px-3 py-1.5 text-base;
+}
+.md {
+  @apply px-4 py-2.5 text-base;
+}
+.lg {
+  @apply px-5 py-4 text-lg;
+}
+.disabled {
+  @apply shadow-none hover:shadow-none rounded-xl bg-gray-100 placeholder-alpha-dark-200 outline-none hover:placeholder-alpha-dark-200;
+}
