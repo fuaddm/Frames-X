@@ -47,7 +47,7 @@
   @apply bg-gray-50 text-green-600 outline-gray-200 hover:text-green-400 hover:outline-gray-200 focus:text-green-600 focus:outline-green-200;
 }
 .active.ghost.success {
-  @apply bg-gray-50 text-green-600 outline-2 outline-green-600 hover:text-green-400 hover:outline-green-600 focus:text-green-600 focus:outline-green-200;
+  @apply bg-gray-50 text-green-600 outline-2 outline-green-600 hover:text-green-400 hover:outline-green-600 focus:text-green-600 focus:outline-4 focus:outline-green-200;
 }
 .ghost.error {
   @apply bg-gray-50 text-red-600 outline-gray-200 hover:text-red-400 hover:outline-gray-200 focus:text-red-600 focus:outline-red-200;

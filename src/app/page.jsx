@@ -6,44 +6,47 @@ import { Input } from '@/components/ui/Input/Input';
 import { Textarea } from '@/components/ui/Textarea/Textarea';
 import { Chip } from '@/components/ui/Chip/Chip';
 import { Badge } from '@/components/ui/Badge/Badge';
+import { Tabs } from '@/components/ui/Tabs/Tabs';
 
 export default function Home() {
   return (
     <div className="mx-auto flex max-w-[500px] select-none flex-col justify-center gap-10 py-20">
       <div className="flex w-full flex-col items-center gap-4">
-        <Accordion
-          title="Accordion title"
-          description="Hook, so you can only call it at the top level of your component or your own Hooks."
-          name="acc"
-        />
-        <Accordion
-          title="Accordion title"
-          description="However, hardcoding IDs like this is not a good practice in React."
-          name="acc"
-        />
-        <Accordion
-          title="Accordion title"
-          name="acc">
-          <div className="h-6 w-6 bg-red-400"></div>
-        </Accordion>
-        <Divider />
-        <Avatar isOnline={true} />
-        <Avatar size="xs" />
-        <Avatar size="sm" />
-        <Avatar size="base" />
-        <Avatar size="md" />
-        <Avatar
-          size="lg"
-          isOnline={false}
-          name="Fuad Demirchiyev"
-          caption="Caption"
-        />
-        <Avatar
-          size="xl"
-          isOnline={true}
-          src="https://avatars.githubusercontent.com/u/113819802?v=4"
-          name="Fuad Demirchiyev"
-        />
+        <div className="flex flex-col gap-4">
+          <Accordion
+            title="Accordion title"
+            description="Hook, so you can only call it at the top level of your component or your own Hooks."
+            name="acc"
+          />
+          <Accordion
+            title="Accordion title"
+            description="However, hardcoding IDs like this is not a good practice in React."
+            name="acc"
+          />
+          <Accordion
+            title="Accordion title"
+            name="acc">
+            <div className="h-6 w-6 bg-red-400"></div>
+          </Accordion>
+          <Divider />
+          <Avatar isOnline={true} />
+          <Avatar size="xs" />
+          <Avatar size="sm" />
+          <Avatar size="base" />
+          <Avatar size="md" />
+          <Avatar
+            size="lg"
+            isOnline={false}
+            name="Fuad Demirchiyev"
+            caption="Caption"
+          />
+          <Avatar
+            size="xl"
+            isOnline={true}
+            src="https://avatars.githubusercontent.com/u/113819802?v=4"
+            name="Fuad Demirchiyev"
+          />
+        </div>
         <div className="flex gap-2">
           <Button
             variant="primary"
@@ -299,6 +302,9 @@ export default function Home() {
             Label
           </Badge>
         </div>
+        <Tabs
+          tabs={['Label', 'LabelLabel', 'Label2For', 'Label3', 'Label4TabBtn']}
+        />
       </div>
     </div>
   );
