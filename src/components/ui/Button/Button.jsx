@@ -2,7 +2,13 @@ import React from 'react';
 import styles from './button.module.css';
 import cn from 'classnames';
 
-const Button = ({ type = 'primary', size = 'default', children, ...props }) => {
+const Button = ({
+  type = 'primary',
+  size = 'default',
+  classNames,
+  children,
+  ...props
+}) => {
   return (
     <button
       className={cn({
@@ -10,11 +16,12 @@ const Button = ({ type = 'primary', size = 'default', children, ...props }) => {
         [styles.secondary]: type == 'secondary',
         [styles.destructive]: type == 'destructive',
         [styles.ghost]: type == 'ghost',
-        [styles.small]: size == 'small',
-        [styles.default]: size == 'default',
-        [styles.large]: size == 'large',
+        [styles.sm]: size == 'sm',
+        [styles.md]: size == 'md',
+        [styles.lg]: size == 'lg',
         [styles.xl]: size == 'xl',
         [styles.button]: true,
+        [classNames]: true,
       })}
       {...props}>
       {children}

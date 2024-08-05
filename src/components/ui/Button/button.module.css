@@ -1,5 +1,5 @@
 .button {
-  @apply rounded-[10px] font-semibold shadow-xs outline outline-1 hover:shadow-sm active:outline-4 active:outline-blue-300;
+  @apply rounded-[10px] text-center font-semibold shadow-xs outline outline-1 hover:shadow-sm active:outline-4 active:outline-blue-300;
 }
 .primary {
   @apply bg-blue-600 text-alpha-light-900 outline-blue-600 hover:bg-blue-500 active:bg-blue-600;
@@ -13,13 +13,13 @@
 .ghost {
   @apply bg-alpha-light-900 text-blue-600 outline-blue-600 hover:outline-2 active:outline-4;
 }
-.small {
+.sm {
   @apply px-3 py-1.5 text-sm;
 }
-.default {
+.md {
   @apply px-4 py-2.5 text-base;
 }
-.large {
+.lg {
   @apply px-4 py-2 text-lg;
 }
 .xl {

@@ -1,29 +1,26 @@
 import React from 'react';
-import styles from './input.module.css';
 import cn from 'classnames';
+import styles from './textarea.module.css';
 
-const Input = ({
+const Textarea = ({
   size = 'sm',
-  type = 'text',
   isDisabled = false,
   classNames,
   ...props
 }) => {
   return (
-    <input
-      type={type}
-      {...props}
+    <textarea
       disabled={isDisabled}
       className={cn({
         [styles.sm]: size == 'sm' || !['sm', 'md', 'lg'].includes(size),
         [styles.md]: size == 'md',
         [styles.lg]: size == 'lg',
-        [styles.input]: true,
+        [styles.textarea]: true,
         [styles.disabled]: isDisabled,
         [classNames]: true,
       })}
-    />
+      {...props}></textarea>
   );
 };
 
-export { Input };
+export { Textarea };

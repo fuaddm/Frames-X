@@ -3,6 +3,8 @@ import { Avatar } from '@/components/ui/Avatar/Avatar';
 import { Divider } from '@/components/ui/Divider/Divider';
 import { Button } from '@/components/ui/Button/Button';
 import { Input } from '@/components/ui/Input/Input';
+import { Textarea } from '@/components/ui/Textarea/Textarea';
+import { Chip } from '@/components/ui/Chip/Chip';
 
 export default function Home() {
   return (
@@ -44,66 +46,66 @@ export default function Home() {
         <div className="flex gap-2">
           <Button
             type="primary"
-            size="small">
+            size="sm">
             Button
           </Button>
           <Button
             type="secondary"
-            size="small">
+            size="sm">
             Button
           </Button>
           <Button
             type="ghost"
-            size="small">
+            size="sm">
             Button
           </Button>
           <Button
             type="destructive"
-            size="small">
+            size="sm">
             Button
           </Button>
         </div>
         <div className="flex gap-2">
           <Button
             type="primary"
-            size="default">
+            size="md">
             Button
           </Button>
           <Button
             type="secondary"
-            size="default">
+            size="md">
             Button
           </Button>
           <Button
             type="ghost"
-            size="default">
+            size="md">
             Button
           </Button>
           <Button
             type="destructive"
-            size="default">
+            size="md">
             Button
           </Button>
         </div>
         <div className="flex gap-2">
           <Button
             type="primary"
-            size="large">
+            size="lg">
             Button
           </Button>
           <Button
             type="secondary"
-            size="large">
+            size="lg">
             Button
           </Button>
           <Button
             type="ghost"
-            size="large">
+            size="lg">
             Button
           </Button>
           <Button
             type="destructive"
-            size="large">
+            size="lg">
             Button
           </Button>
         </div>
@@ -160,6 +162,48 @@ export default function Home() {
           size="lg"
           isDisabled={true}
         />
+        <Textarea
+          placeholder="Write Text"
+          classNames="w-full"
+        />
+        <Textarea
+          isDisabled
+          placeholder="Write Text"
+          classNames="w-full"
+        />
+        <Textarea
+          size="lg"
+          placeholder="Write Text"
+          classNames="w-full"
+        />
+        <div className="mb-2 flex items-center gap-4">
+          <Chip size="sm" />
+          <Chip
+            size="sm"
+            isActive={true}
+          />
+        </div>
+        <div className="mb-2 flex items-center gap-4">
+          <Chip size="md" />
+          <Chip
+            size="md"
+            isActive={true}
+          />
+        </div>
+        <div className="mb-2 flex items-center gap-4">
+          <Chip size="lg" />
+          <Chip
+            size="lg"
+            isActive={true}
+          />
+        </div>
+        <div className="mb-2 flex items-center gap-4">
+          <Chip size="xl" />
+          <Chip
+            size="xl"
+            isActive={true}
+          />
+        </div>
       </div>
     </div>
   );
