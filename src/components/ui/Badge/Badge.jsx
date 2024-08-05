@@ -1,34 +1,36 @@
-'use client';
-import SvgClose from '@/svg/SvgClose';
 import React from 'react';
 import cn from 'classnames';
-import styles from './chip.module.css';
+import styles from './badge.module.css';
 
-const Chip = ({
+const Badge = ({
   size,
+  variant, // warning, success, error
+  type,
   classNames,
-  children,
   isActive = false,
-  onClose = () => {},
+  children,
   ...props
 }) => {
   return (
     <div
       tabIndex={0}
       className={cn({
+        [styles.badge]: true,
         [styles.sm]: size == 'sm' || !['sm', 'md', 'lg', 'xl'].includes(size),
         [styles.md]: size == 'md',
         [styles.lg]: size == 'lg',
         [styles.xl]: size == 'xl',
-        [styles.chip]: true,
+        [styles.warning]: variant == 'warning',
+        [styles.success]: variant == 'success',
+        [styles.error]: variant == 'error',
+        [styles.ghost]: type == 'ghost',
         [styles.active]: isActive,
         [classNames]: true,
       })}
       {...props}>
-      <span>{children}</span>
-      <SvgClose onClick={() => onClose()} />
+      {children}
     </div>
   );
 };
 
-export { Chip };
+export { Badge };

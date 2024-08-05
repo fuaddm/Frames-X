@@ -1,0 +1,57 @@
+.sm {
+  @apply px-3 py-0.5 text-sm font-medium;
+}
+.md {
+  @apply px-3 py-0.5 text-base font-semibold;
+}
+.lg {
+  @apply px-3 py-1.5 text-lg font-semibold;
+}
+.xl {
+  @apply px-4 py-2.5 text-xl font-semibold;
+}
+
+.badge {
+  @apply rounded-xl bg-gray-50 text-alpha-dark-900 shadow-sm outline outline-1 outline-gray-200 hover:bg-gray-100 hover:shadow-xs focus:bg-alpha-light-900 focus:outline-4 focus:outline-blue-300;
+}
+.active {
+  @apply bg-blue-600 text-alpha-light-900 shadow-sm hover:bg-blue-600 focus:bg-blue-600;
+}
+
+.warning {
+  @apply bg-orange-200 outline-orange-200 hover:bg-orange-400 hover:outline-orange-400 focus:bg-gray-100 focus:outline-orange-200;
+}
+.active.warning {
+  @apply bg-orange-600 outline-gray-200 hover:outline-1 hover:outline-gray-200 focus:outline-4 focus:outline-blue-300;
+}
+.success {
+  @apply bg-green-300 outline-green-300 hover:bg-green-400 hover:outline-green-400 focus:bg-gray-100 focus:outline-green-300;
+}
+.active.success {
+  @apply bg-green-600 outline-green-600 hover:outline-1 hover:outline-green-600 focus:outline-4 focus:outline-blue-300;
+}
+.error {
+  @apply bg-red-200 outline-red-200 hover:bg-red-400 hover:outline-red-400 focus:bg-gray-100 focus:outline-red-200;
+}
+.active.error {
+  @apply bg-red-600 outline-red-600 hover:outline-1 hover:outline-red-600 focus:outline-4 focus:outline-blue-300;
+}
+
+.ghost.warning {
+  @apply bg-gray-50 text-orange-600 outline-gray-200 hover:text-orange-400 hover:outline-gray-200 focus:text-orange-600 focus:outline-orange-200;
+}
+.active.ghost.warning {
+  @apply bg-gray-50 text-orange-600 outline-orange-600 hover:text-orange-400 hover:outline-orange-600 focus:text-orange-600 focus:outline-orange-200;
+}
+.ghost.success {
+  @apply bg-gray-50 text-green-600 outline-gray-200 hover:text-green-400 hover:outline-gray-200 focus:text-green-600 focus:outline-green-200;
+}
+.active.ghost.success {
+  @apply bg-gray-50 text-green-600 outline-2 outline-green-600 hover:text-green-400 hover:outline-green-600 focus:text-green-600 focus:outline-green-200;
+}
+.ghost.error {
+  @apply bg-gray-50 text-red-600 outline-gray-200 hover:text-red-400 hover:outline-gray-200 focus:text-red-600 focus:outline-red-200;
+}
+.active.ghost.error {
+  @apply bg-gray-50 text-red-600 outline-red-600 hover:text-red-400 hover:outline-red-600 focus:text-red-600 focus:outline-red-200;
+}

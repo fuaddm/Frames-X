@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/Button/Button';
 import { Input } from '@/components/ui/Input/Input';
 import { Textarea } from '@/components/ui/Textarea/Textarea';
 import { Chip } from '@/components/ui/Chip/Chip';
+import { Badge } from '@/components/ui/Badge/Badge';
 
 export default function Home() {
   return (
@@ -45,137 +46,139 @@ export default function Home() {
         />
         <div className="flex gap-2">
           <Button
-            type="primary"
+            variant="primary"
             size="sm">
             Button
           </Button>
           <Button
-            type="secondary"
+            variant="secondary"
             size="sm">
             Button
           </Button>
           <Button
-            type="ghost"
+            variant="ghost"
             size="sm">
             Button
           </Button>
           <Button
-            type="destructive"
+            variant="destructive"
             size="sm">
             Button
           </Button>
         </div>
         <div className="flex gap-2">
           <Button
-            type="primary"
+            variant="primary"
             size="md">
             Button
           </Button>
           <Button
-            type="secondary"
+            variant="secondary"
             size="md">
             Button
           </Button>
           <Button
-            type="ghost"
+            variant="ghost"
             size="md">
             Button
           </Button>
           <Button
-            type="destructive"
+            variant="destructive"
             size="md">
             Button
           </Button>
         </div>
         <div className="flex gap-2">
           <Button
-            type="primary"
+            variant="primary"
             size="lg">
             Button
           </Button>
           <Button
-            type="secondary"
+            variant="secondary"
             size="lg">
             Button
           </Button>
           <Button
-            type="ghost"
+            variant="ghost"
             size="lg">
             Button
           </Button>
           <Button
-            type="destructive"
+            variant="destructive"
             size="lg">
             Button
           </Button>
         </div>
         <div className="flex gap-2">
           <Button
-            type="primary"
+            variant="primary"
             size="xl">
             Button
           </Button>
           <Button
-            type="secondary"
+            variant="secondary"
             size="xl">
             Button
           </Button>
           <Button
-            type="ghost"
+            variant="ghost"
             size="xl">
             Button
           </Button>
           <Button
-            type="destructive"
+            variant="destructive"
             size="xl">
             Button
           </Button>
         </div>
-        <Input
-          placeholder="Text"
-          classNames="w-full"
-        />
-        <Input
-          placeholder="Text"
-          size="sm"
-        />
-        <Input
-          placeholder="Text"
-          size="md"
-        />
-        <Input
-          placeholder="Text"
-          size="lg"
-        />
-        <Input
-          placeholder="Text"
-          size="sm"
-          isDisabled={true}
-        />
-        <Input
-          placeholder="Text"
-          size="md"
-          isDisabled={true}
-        />
-        <Input
-          placeholder="Text"
-          size="lg"
-          isDisabled={true}
-        />
-        <Textarea
-          placeholder="Write Text"
-          classNames="w-full"
-        />
-        <Textarea
-          isDisabled
-          placeholder="Write Text"
-          classNames="w-full"
-        />
-        <Textarea
-          size="lg"
-          placeholder="Write Text"
-          classNames="w-full"
-        />
+        <div className="flex flex-col gap-2">
+          <Input
+            placeholder="Text"
+            classNames="w-full"
+          />
+          <Input
+            placeholder="Text"
+            size="sm"
+          />
+          <Input
+            placeholder="Text"
+            size="md"
+          />
+          <Input
+            placeholder="Text"
+            size="lg"
+          />
+          <Input
+            placeholder="Text"
+            size="sm"
+            isDisabled={true}
+          />
+          <Input
+            placeholder="Text"
+            size="md"
+            isDisabled={true}
+          />
+          <Input
+            placeholder="Text"
+            size="lg"
+            isDisabled={true}
+          />
+          <Textarea
+            placeholder="Write Text"
+            classNames="w-full"
+          />
+          <Textarea
+            isDisabled
+            placeholder="Write Text"
+            classNames="w-full"
+          />
+          <Textarea
+            size="lg"
+            placeholder="Write Text"
+            classNames="w-full"
+          />
+        </div>
         <div className="mb-2 flex items-center gap-4">
           <Chip size="sm" />
           <Chip
@@ -201,8 +204,100 @@ export default function Home() {
           <Chip size="xl" />
           <Chip
             size="xl"
+            isActive={true}>
+            Label
+          </Chip>
+        </div>
+        <div className="mb-2 flex items-center gap-4">
+          <Badge>Label</Badge>
+          <Badge isActive={true}>Label</Badge>
+        </div>
+        <div className="mb-2 flex items-center gap-4">
+          <Badge size="md">Label</Badge>
+          <Badge
+            size="md"
+            isActive={true}>
+            Label
+          </Badge>
+        </div>
+        <div className="mb-2 flex items-center gap-4">
+          <Badge size="lg">Label</Badge>
+          <Badge
+            size="lg"
+            isActive={true}>
+            Label
+          </Badge>
+        </div>
+        <div className="mb-2 flex items-center gap-4">
+          <Badge size="xl">Label</Badge>
+          <Badge
+            size="xl"
+            isActive={true}>
+            Label
+          </Badge>
+        </div>
+        <div className="mb-2 flex items-center gap-4">
+          <Badge
+            size="sm"
+            variant="warning">
+            Label
+          </Badge>
+          <Badge
+            size="sm"
             isActive={true}
-          />
+            variant="warning">
+            Label
+          </Badge>
+        </div>
+        <div className="mb-2 flex items-center gap-4">
+          <Badge variant="success">Label</Badge>
+          <Badge
+            isActive={true}
+            variant="success">
+            Label
+          </Badge>
+        </div>
+        <div className="mb-2 flex items-center gap-4">
+          <Badge variant="warning">Label</Badge>
+          <Badge
+            type="ghost"
+            variant="warning">
+            Label
+          </Badge>
+          <Badge
+            isActive={true}
+            type="ghost"
+            variant="warning">
+            Label
+          </Badge>
+        </div>
+        <div className="mb-2 flex items-center gap-4">
+          <Badge variant="error">Label</Badge>
+          <Badge
+            type="ghost"
+            variant="error">
+            Label
+          </Badge>
+          <Badge
+            isActive={true}
+            type="ghost"
+            variant="error">
+            Label
+          </Badge>
+        </div>
+        <div className="mb-2 flex items-center gap-4">
+          <Badge variant="success">Label</Badge>
+          <Badge
+            type="ghost"
+            variant="success">
+            Label
+          </Badge>
+          <Badge
+            isActive={true}
+            type="ghost"
+            variant="success">
+            Label
+          </Badge>
         </div>
       </div>
     </div>

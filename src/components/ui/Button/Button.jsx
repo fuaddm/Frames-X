@@ -3,7 +3,7 @@ import styles from './button.module.css';
 import cn from 'classnames';
 
 const Button = ({
-  type = 'primary',
+  variant = 'primary',
   size = 'default',
   classNames,
   children,
@@ -12,10 +12,10 @@ const Button = ({
   return (
     <button
       className={cn({
-        [styles.primary]: type == 'primary',
-        [styles.secondary]: type == 'secondary',
-        [styles.destructive]: type == 'destructive',
-        [styles.ghost]: type == 'ghost',
+        [styles.primary]: variant == 'primary',
+        [styles.secondary]: variant == 'secondary',
+        [styles.destructive]: variant == 'destructive',
+        [styles.ghost]: variant == 'ghost',
         [styles.sm]: size == 'sm',
         [styles.md]: size == 'md',
         [styles.lg]: size == 'lg',
