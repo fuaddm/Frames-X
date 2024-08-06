@@ -1,7 +1,8 @@
 'use client';
 import React, { useLayoutEffect, useRef, useState } from 'react';
+import cn from 'classnames';
 
-const Tabs = ({ tabs, onClick = () => {} }) => {
+const Tabs = ({ tabs, size = 'sm', onClick = () => {} }) => {
   const firstTabRef = useRef(null);
   const [mainTab, setMainTab] = useState({
     width: undefined,
@@ -18,7 +19,7 @@ const Tabs = ({ tabs, onClick = () => {} }) => {
     tabIndex: 0,
   });
 
-  const handleClick = (e, index) => {
+  const handleClick = (e, index, tab) => {
     setMainTab({
       width: e.currentTarget.offsetWidth + 'px',
       height: e.currentTarget.offsetHeight + 'px',
@@ -26,7 +27,7 @@ const Tabs = ({ tabs, onClick = () => {} }) => {
       opacity: 1,
       tabIndex: index,
     });
-    onClick();
+    onClick(tab);
   };
 
   const handleHover = (e, index) => {
@@ -76,9 +77,17 @@ const Tabs = ({ tabs, onClick = () => {} }) => {
           <span
             key={index}
             ref={index == 0 ? firstTabRef : null}
-            onClick={(e) => handleClick(e, index)}
+            onClick={(e) => handleClick(e, index, tab)}
             onMouseEnter={(e) => handleHover(e, index)}
-            className={`${mainTab.tabIndex == index ? 'text-alpha-dark-900' : 'text-alpha-dark-400'} relative z-30 px-3 py-1.5 text-sm font-medium transition-all`}>
+            className={cn({
+              'text-alpha-dark-900': mainTab.tabIndex == index,
+              'text-alpha-dark-400': mainTab.tabIndex != index,
+              'relative z-30 font-medium transition-all': true,
+              'px-3 py-1.5 text-sm':
+                size == 'sm' || !['sm', 'md', 'lg'].includes(size),
+              'px-4 py-2 text-base': size == 'md',
+              'px-5 py-3 text-lg': size == 'lg',
+            })}>
             {tab}
           </span>
         );

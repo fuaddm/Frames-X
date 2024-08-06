@@ -305,6 +305,18 @@ export default function Home() {
         <Tabs
           tabs={['Label', 'LabelLabel', 'Label2For', 'Label3', 'Label4TabBtn']}
         />
+        <Tabs
+          tabs={['Label', 'LabelLabel', 'Label2For', 'Label3', 'Label4TabBtn']}
+          size="sm"
+        />
+        <Tabs
+          tabs={['Label', 'LabelLabel', 'Label2For', 'Label3', 'Label4TabBtn']}
+          size="md"
+        />
+        <Tabs
+          tabs={['Label', 'LabelLabel', 'Label2For', 'Label3', 'Label4TabBtn']}
+          size="lg"
+        />
       </div>
     </div>
   );
