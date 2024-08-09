@@ -1,0 +1,119 @@
+.tooltipWrapper {
+  @apply invisible absolute z-10 flex opacity-0;
+  transition:
+    visibility 150ms,
+    opacity 150ms;
+}
+.tooltip {
+  @apply relative w-fit whitespace-nowrap rounded-lg border border-gray-200 bg-alpha-light-900 px-4 py-2 text-center text-sm font-medium text-alpha-dark-900 shadow-sm;
+}
+
+.tooltipArrow {
+  @apply relative;
+}
+
+.top {
+  @apply left-1/2 -translate-x-1/2 pb-2;
+}
+.topLeft {
+  @apply left-0 pb-2;
+}
+.topRight {
+  @apply right-0 pb-2;
+}
+.bottom {
+  @apply left-1/2 -translate-x-1/2 pt-2;
+}
+.bottomLeft {
+  @apply left-0 pt-2;
+}
+.bottomRight {
+  @apply right-0 pt-2;
+}
+
+.tooltipWrapper.top .tooltipArrow::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  border-left: 0;
+  border-top: 0;
+  border-bottom: 1px solid var(--gray-200);
+  border-right: 1px solid var(--gray-200);
+  transform: translateX(-50%) translateY(-3.4px) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  background: var(--alpha-light-900);
+}
+.tooltipWrapper.topLeft .tooltipArrow::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 16px;
+  border-left: 0;
+  border-top: 0;
+  border-bottom: 1px solid var(--gray-200);
+  border-right: 1px solid var(--gray-200);
+  transform: translateX(-50%) translateY(-3.4px) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  background: var(--alpha-light-900);
+}
+.tooltipWrapper.topRight .tooltipArrow::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  right: 16px;
+  border-left: 0;
+  border-top: 0;
+  border-bottom: 1px solid var(--gray-200);
+  border-right: 1px solid var(--gray-200);
+  transform: translateX(-50%) translateY(-3.4px) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  background: var(--alpha-light-900);
+}
+
+.tooltipWrapper.bottom .tooltipArrow::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  border-top: 1px solid var(--gray-200);
+  border-left: 1px solid var(--gray-200);
+  transform: translateX(-50%) translateY(3.4px) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  background: var(--alpha-light-900);
+}
+
+.tooltipWrapper.bottomLeft .tooltipArrow::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 16px;
+  border-top: 1px solid var(--gray-200);
+  border-left: 1px solid var(--gray-200);
+  transform: translateY(3.4px) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  background: var(--alpha-light-900);
+}
+.tooltipWrapper.bottomRight .tooltipArrow::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  right: 16px;
+  border-top: 1px solid var(--gray-200);
+  border-left: 1px solid var(--gray-200);
+  transform: translateY(3.4px) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  background: var(--alpha-light-900);
+}

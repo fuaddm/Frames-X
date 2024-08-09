@@ -7,11 +7,12 @@ import { Textarea } from '@/components/ui/Textarea/Textarea';
 import { Chip } from '@/components/ui/Chip/Chip';
 import { Badge } from '@/components/ui/Badge/Badge';
 import { Tabs } from '@/components/ui/Tabs/Tabs';
+import { Tooltip } from '@/components/ui/Tooltip/Tooltip';
 
 export default function Home() {
   return (
     <div className="mx-auto flex max-w-[500px] select-none flex-col justify-center gap-10 py-20">
-      <div className="flex w-full flex-col items-center gap-4">
+      <div className="flex w-full flex-col gap-4">
         <div className="flex flex-col gap-4">
           <Accordion
             title="Accordion title"
@@ -302,21 +303,99 @@ export default function Home() {
             Label
           </Badge>
         </div>
-        <Tabs
-          tabs={['Label', 'LabelLabel', 'Label2For', 'Label3', 'Label4TabBtn']}
-        />
-        <Tabs
-          tabs={['Label', 'LabelLabel', 'Label2For', 'Label3', 'Label4TabBtn']}
-          size="sm"
-        />
-        <Tabs
-          tabs={['Label', 'LabelLabel', 'Label2For', 'Label3', 'Label4TabBtn']}
-          size="md"
-        />
-        <Tabs
-          tabs={['Label', 'LabelLabel', 'Label2For', 'Label3', 'Label4TabBtn']}
-          size="lg"
-        />
+        <div className="mb-20 flex flex-col items-center gap-3">
+          <Tabs
+            tabs={[
+              'Label',
+              'LabelLabel',
+              'Label2For',
+              'Label3',
+              'Label4TabBtn',
+            ]}
+            activeTab={4}
+          />
+          <Tabs
+            tabs={[
+              'Label',
+              'LabelLabel',
+              'Label2For',
+              'Label3',
+              'Label4TabBtn',
+            ]}
+            size="sm"
+          />
+          <Tabs
+            tabs={[
+              'Label',
+              'LabelLabel',
+              'Label2For',
+              'Label3',
+              'Label4TabBtn',
+            ]}
+            size="md"
+          />
+          <Tabs
+            tabs={[
+              'Label',
+              'LabelLabel',
+              'Label2For',
+              'Label3',
+              'Label4TabBtn',
+            ]}
+            size="lg"
+            activeTab={1}
+          />
+        </div>
+        <div className="flex flex-col gap-4">
+          <Tooltip
+            content="🔥 Top Text 🔥"
+            showArrow={true}
+            position="top">
+            <span className="text-xl font-bold text-alpha-dark-900">
+              Top Tooltip Text on hover
+            </span>
+          </Tooltip>
+          <Tooltip
+            content="🔥 Top Left Text 🔥"
+            showArrow={true}
+            position="topLeft">
+            <span className="text-xl font-bold text-alpha-dark-900">
+              Top Left Tooltip Text on hover
+            </span>
+          </Tooltip>
+          <Tooltip
+            content="🔥 Top Right Text 🔥"
+            showArrow={true}
+            position="topRight">
+            <span className="text-xl font-bold text-alpha-dark-900">
+              Top Right Tooltip Text on hover
+            </span>
+          </Tooltip>
+          <Tooltip
+            content="🔥 Bottom Text 🔥"
+            showArrow={true}
+            position="bottom">
+            <span className="text-xl font-bold text-alpha-dark-900">
+              Bottom Tooltip Text on hover
+            </span>
+          </Tooltip>
+          <Tooltip
+            content="🔥 Bottom Left Text 🔥"
+            showArrow={true}
+            position="bottomLeft">
+            <span className="text-xl font-bold text-alpha-dark-900">
+              Bottom Left Tooltip Text on hover
+            </span>
+          </Tooltip>
+          <Tooltip
+            content="🔥 Bottom Right Text 🔥"
+            showArrow={true}
+            position="bottomRight">
+            <span className="text-xl font-bold text-alpha-dark-900">
+              Bottom Right Tooltip Text on hover
+            </span>
+          </Tooltip>
+        </div>
       </div>
     </div>
   );

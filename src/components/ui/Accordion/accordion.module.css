@@ -2,10 +2,10 @@
   opacity: 0;
 }
 .accordion:has(:checked) .appear {
-  animation: appear 150ms;
+  animation: appearAccordion 150ms;
   opacity: 1;
 }
-@keyframes appear {
+@keyframes appearAccordion {
   from {
     opacity: 0;
   }

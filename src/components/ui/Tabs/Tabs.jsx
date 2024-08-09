@@ -2,13 +2,13 @@
 import React, { useLayoutEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 
-const Tabs = ({ tabs, size = 'sm', onClick = () => {} }) => {
+const Tabs = ({ tabs, activeTab = 0, size = 'sm', onClick = () => {} }) => {
   const firstTabRef = useRef(null);
   const [mainTab, setMainTab] = useState({
     width: undefined,
     height: undefined,
     transform: undefined,
-    tabIndex: 0,
+    tabIndex: activeTab,
   });
 
   const [shadowTab, setShadowTab] = useState({
@@ -58,25 +58,25 @@ const Tabs = ({ tabs, size = 'sm', onClick = () => {} }) => {
       height: firstTabRef.current.offsetHeight + 'px',
       transform: `translateX(${firstTabRef.current.offsetLeft - 2}px)`,
       opacity: 1,
-      tabIndex: 0,
+      tabIndex: activeTab,
     });
   }, [firstTabRef.current]);
 
   return (
     <div
       onMouseLeave={() => handleMouseLeave()}
-      className="relative flex items-center gap-0.5 rounded-xl bg-gray-100 p-0.5">
+      className="relative flex w-fit items-center gap-0.5 rounded-xl bg-gray-100 p-0.5">
       <div
         style={mainTab}
         className="absolute bottom-0.5 left-0.5 top-0.5 z-20 rounded-xl border border-gray-200 bg-alpha-light-900 opacity-0 transition-[width,height,transform]"></div>
       <div
         style={shadowTab}
-        className="absolute bottom-0.5 left-0.5 top-0.5 z-10 hidden rounded-xl bg-alpha-dark-50 transition-[width,height,transform]"></div>
+        className="absolute bottom-0.5 left-0.5 top-0.5 z-10 hidden rounded-xl bg-gray-200 transition-[width,height,transform]"></div>
       {tabs.map((tab, index) => {
         return (
           <span
             key={index}
-            ref={index == 0 ? firstTabRef : null}
+            ref={index == activeTab ? firstTabRef : null}
             onClick={(e) => handleClick(e, index, tab)}
             onMouseEnter={(e) => handleHover(e, index)}
             className={cn({
