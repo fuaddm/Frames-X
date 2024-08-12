@@ -4,11 +4,12 @@ import cn from 'classnames';
 
 const Button = ({
   variant = 'primary',
-  size = 'default',
+  size = 'md',
   classNames,
   children,
   ...props
 }) => {
+  const allSizes = ['sm', 'md', 'lg', 'xl'];
   return (
     <button
       className={cn({
@@ -17,10 +18,11 @@ const Button = ({
         [styles.destructive]: variant == 'destructive',
         [styles.ghost]: variant == 'ghost',
         [styles.sm]: size == 'sm',
-        [styles.md]: size == 'md',
+        [styles.md]: size == 'md' || !allSizes.includes(size),
         [styles.lg]: size == 'lg',
         [styles.xl]: size == 'xl',
         [styles.button]: true,
+        'w-fit': true,
         [classNames]: true,
       })}
       {...props}>

@@ -65,13 +65,13 @@ const Tabs = ({ tabs, activeTab = 0, size = 'sm', onClick = () => {} }) => {
   return (
     <div
       onMouseLeave={() => handleMouseLeave()}
-      className="relative flex w-fit items-center gap-0.5 rounded-xl bg-gray-100 p-0.5">
+      className="relative flex w-fit items-center gap-0.5 rounded-lg bg-gray-100 p-0.5">
       <div
         style={mainTab}
-        className="absolute bottom-0.5 left-0.5 top-0.5 z-20 rounded-xl border border-gray-200 bg-alpha-light-900 opacity-0 transition-[width,height,transform]"></div>
+        className="absolute bottom-0.5 left-0.5 top-0.5 z-20 rounded-md border border-gray-200 bg-alpha-light-900 opacity-0 transition-[width,height,transform]"></div>
       <div
         style={shadowTab}
-        className="absolute bottom-0.5 left-0.5 top-0.5 z-10 hidden rounded-xl bg-gray-200 transition-[width,height,transform]"></div>
+        className="absolute bottom-0.5 left-0.5 top-0.5 z-10 hidden rounded-md bg-gray-200 transition-[width,height,transform]"></div>
       {tabs.map((tab, index) => {
         return (
           <span

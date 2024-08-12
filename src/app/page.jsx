@@ -325,13 +325,7 @@ export default function Home() {
             size="sm"
           />
           <Tabs
-            tabs={[
-              'Label',
-              'LabelLabel',
-              'Label2For',
-              'Label3',
-              'Label4TabBtn',
-            ]}
+            tabs={['Featured', 'Latest']}
             size="md"
           />
           <Tabs
@@ -346,7 +340,7 @@ export default function Home() {
             activeTab={1}
           />
         </div>
-        <div className="flex flex-col gap-4">
+        <div className="mb-10 flex flex-col gap-4">
           <Tooltip
             content="🔥 Top Text 🔥"
             showArrow={true}
