@@ -184,61 +184,51 @@ export default function Home() {
           />
         </div>
         <div className="mb-2 flex items-center gap-4">
-          <Chip size="sm" />
+          <Chip size="sm">CHIP SM</Chip>
           <Chip
             size="sm"
-            isActive={true}
-          />
+            isActive={true}>
+            CHIP SM
+          </Chip>
         </div>
         <div className="mb-2 flex items-center gap-4">
-          <Chip size="md" />
+          <Chip size="md">CHIP MD</Chip>
           <Chip
             size="md"
-            isActive={true}
-          />
+            isActive={true}>
+            CHIP MD
+          </Chip>
         </div>
         <div className="mb-2 flex items-center gap-4">
-          <Chip size="lg" />
+          <Chip size="lg">CHIP LG</Chip>
           <Chip
             size="lg"
-            isActive={true}
-          />
+            isActive={true}>
+            CHIP LG
+          </Chip>
         </div>
         <div className="mb-2 flex items-center gap-4">
-          <Chip size="xl" />
+          <Chip size="xl">CHIP XL</Chip>
           <Chip
             size="xl"
             isActive={true}>
-            Label
+            CHIP XL
           </Chip>
         </div>
         <div className="mb-2 flex items-center gap-4">
           <Badge>Label</Badge>
-          <Badge isActive={true}>Label</Badge>
         </div>
         <div className="mb-2 flex items-center gap-4">
           <Badge size="md">Label</Badge>
-          <Badge
-            size="md"
-            isActive={true}>
-            Label
-          </Badge>
+          <Badge size="md">Label</Badge>
         </div>
         <div className="mb-2 flex items-center gap-4">
           <Badge size="lg">Label</Badge>
-          <Badge
-            size="lg"
-            isActive={true}>
-            Label
-          </Badge>
+          <Badge size="lg">Label</Badge>
         </div>
         <div className="mb-2 flex items-center gap-4">
           <Badge size="xl">Label</Badge>
-          <Badge
-            size="xl"
-            isActive={true}>
-            Label
-          </Badge>
+          <Badge size="xl">Label</Badge>
         </div>
         <div className="mb-2 flex items-center gap-4">
           <Badge
@@ -248,18 +238,13 @@ export default function Home() {
           </Badge>
           <Badge
             size="sm"
-            isActive={true}
             variant="warning">
             Label
           </Badge>
         </div>
         <div className="mb-2 flex items-center gap-4">
           <Badge variant="success">Label</Badge>
-          <Badge
-            isActive={true}
-            variant="success">
-            Label
-          </Badge>
+          <Badge variant="success">Label</Badge>
         </div>
         <div className="mb-2 flex items-center gap-4">
           <Badge variant="warning">Label</Badge>
@@ -269,7 +254,6 @@ export default function Home() {
             Label
           </Badge>
           <Badge
-            isActive={true}
             type="ghost"
             variant="warning">
             Label
@@ -283,7 +267,6 @@ export default function Home() {
             Label
           </Badge>
           <Badge
-            isActive={true}
             type="ghost"
             variant="error">
             Label
@@ -297,7 +280,6 @@ export default function Home() {
             Label
           </Badge>
           <Badge
-            isActive={true}
             type="ghost"
             variant="success">
             Label

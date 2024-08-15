@@ -12,10 +12,10 @@
 }
 
 .chip {
-  @apply flex items-center rounded-full bg-gray-50 text-alpha-dark-900 shadow-sm outline outline-1 outline-gray-200 hover:bg-gray-100 focus:bg-alpha-light-900 focus:outline-4 focus:outline-blue-300;
+  @apply flex items-center rounded-full border border-gray-200 bg-gray-50 text-alpha-dark-900 shadow-sm transition-[box-shadow] hover:bg-gray-100 focus:bg-alpha-light-900 focus:shadow-[0px_0px_0px_4px_var(--blue-300)];
 }
 .active {
-  @apply bg-blue-600 text-alpha-light-900 hover:bg-blue-600 focus:bg-blue-600;
+  @apply border-blue-600 bg-blue-600 text-alpha-light-900 hover:bg-blue-600 focus:bg-blue-600;
 }
 .chip.sm svg {
   @apply h-3.5 w-3.5 cursor-pointer fill-gray-400;

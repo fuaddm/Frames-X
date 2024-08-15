@@ -1,17 +1,17 @@
 .button {
-  @apply rounded-[10px] border border-solid text-center font-semibold shadow-xs outline outline-0 outline-blue-300 transition-[outline] ease-in hover:shadow-sm hover:outline-4;
+  @apply rounded-[10px] border border-solid text-center font-semibold shadow-xs transition-[box-shadow_background] ease-in hover:shadow-sm focus:shadow-[0px_0px_0px_4px_var(--blue-300)];
 }
 .primary {
-  @apply border-blue-600 bg-blue-600 text-alpha-light-900 focus:outline-4 active:bg-blue-500;
+  @apply border-blue-600 bg-blue-600 text-alpha-light-900 active:bg-blue-500;
 }
 .secondary {
-  @apply border-gray-200 bg-gray-50 text-alpha-dark-900 focus:outline-4 active:bg-gray-200;
+  @apply border-gray-200 bg-gray-50 text-alpha-dark-900 active:bg-gray-200;
 }
 .destructive {
-  @apply border-red-600 bg-red-600 text-alpha-light-900 focus:outline-4 active:bg-red-400;
+  @apply border-red-600 bg-red-600 text-alpha-light-900 active:bg-red-400;
 }
 .ghost {
-  @apply border-blue-600 bg-alpha-light-900 text-blue-600 focus:outline-4;
+  @apply border-blue-600 bg-alpha-light-900 text-blue-600;
 }
 .sm {
   @apply px-3 py-1.5 text-sm;

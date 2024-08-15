@@ -7,7 +7,6 @@ const Badge = ({
   variant, // warning, success, error
   type,
   classNames,
-  isActive = false,
   children,
   ...props
 }) => {
@@ -24,7 +23,6 @@ const Badge = ({
         [styles.success]: variant == 'success',
         [styles.error]: variant == 'error',
         [styles.ghost]: type == 'ghost',
-        [styles.active]: isActive,
         [classNames]: true,
       })}
       {...props}>
