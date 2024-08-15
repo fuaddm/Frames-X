@@ -1,66 +1,75 @@
 'use client';
-import React, { useEffect, useRef } from 'react';
-import styles from './slider.module.css';
-import cn from 'classnames';
+import React, { useCallback, useEffect, useRef } from 'react';
+import { SliderUI } from './SliderUI';
 
-const Slider = ({}) => {
+const Slider = ({ minValue, maxValue }) => {
   const rangeThumbRef = useRef(null);
   const rangeThumbNumRef = useRef(null);
   const blueLineRef = useRef(null);
   const rangeLineRef = useRef(null);
+  const rangeRef = useRef(0);
+  const lastClientXRef = useRef(0);
+  const numTimeOutRef = useRef(null);
+  const maxRangePxRef = useRef(0);
+
+  const deleteThumbNum = useCallback(() => {
+    clearTimeout(numTimeOutRef.current);
+    numTimeOutRef.current = setTimeout(() => {
+      rangeThumbNumRef.current.style.visibility = 'invisible';
+      rangeThumbNumRef.current.style.opacity = '0';
+      rangeThumbRef.current.style.outline = '';
+    }, 1000);
+  });
+
+  const createThumbNum = useCallback(() => {
+    rangeThumbNumRef.current.style.visibility = 'visible';
+    rangeThumbNumRef.current.style.opacity = '1';
+    rangeThumbRef.current.style.outline = '2px solid var(--blue-600)';
+    deleteThumbNum();
+  });
+
+  const transformThumbAndBlueLine = useCallback((range) => {
+    rangeThumbRef.current.style.transform = `translateY(-50%) translateX(${range}px)`;
+    blueLineRef.current.style.transform = `translateX(${range}px)`;
+  });
+
+  const createPercentageNum = useCallback((range, maxRangePx) => {
+    minValue = minValue == undefined ? 0 : minValue;
+    maxValue = maxValue == undefined ? 100 : maxValue;
+
+    const percentageOfRange = Math.round(
+      minValue + (range / maxRangePx) * (maxValue - minValue)
+    );
+    rangeThumbNumRef.current.innerText = percentageOfRange;
+  });
 
   // Mouse control
   useEffect(() => {
     if (rangeLineRef.current && rangeThumbRef.current) {
-      let maxRangePx =
-        rangeLineRef.current.offsetWidth - rangeThumbRef.current.offsetWidth;
-      let range = 0;
-      let numTimeOut;
-      let lastClientX = 0;
-
-      function deleteThumbNum() {
-        clearTimeout(numTimeOut);
-        numTimeOut = setTimeout(() => {
-          rangeThumbNumRef.current.style.visibility = 'invisible';
-          rangeThumbNumRef.current.style.opacity = '0';
-        }, 1000);
-      }
-
-      function createThumbNum() {
-        rangeThumbNumRef.current.style.visibility = 'visible';
-        rangeThumbNumRef.current.style.opacity = '1';
-        deleteThumbNum();
-      }
-
       function moveMouse(e) {
-        range += e.clientX - lastClientX;
-        lastClientX = e.clientX;
+        rangeRef.current += e.clientX - lastClientXRef.current;
+        lastClientXRef.current = e.clientX;
 
-        if (range <= maxRangePx && range >= 0) {
-          rangeThumbRef.current.style.transform = `translateY(-50%) translateX(${range}px)`;
-          blueLineRef.current.style.transform = `translateX(${range}px)`;
+        if (
+          rangeRef.current <= maxRangePxRef.current &&
+          rangeRef.current >= 0
+        ) {
+          transformThumbAndBlueLine(rangeRef.current);
+        } else if (rangeRef.current > maxRangePxRef.current) {
+          rangeRef.current = maxRangePxRef.current;
+          transformThumbAndBlueLine(rangeRef.current);
+        } else if (rangeRef.current < 0) {
+          rangeRef.current = 0;
+          transformThumbAndBlueLine(rangeRef.current);
         }
 
-        if (range > maxRangePx) {
-          range = maxRangePx;
-          rangeThumbRef.current.style.transform = `translateY(-50%) translateX(${maxRangePx}px)`;
-          blueLineRef.current.style.transform = `translateX(${maxRangePx}px)`;
-        }
+        createPercentageNum(rangeRef.current, maxRangePxRef.current);
 
-        if (range < 0) {
-          range = 0;
-          rangeThumbRef.current.style.transform = `translateY(-50%) translateX(0px)`;
-          blueLineRef.current.style.transform = `translateX(0px)`;
-        }
-
-        const percentageOfRange = Math.round((range / maxRangePx) * 100);
-        rangeThumbNumRef.current.innerText = percentageOfRange;
+        createThumbNum();
       }
 
       function downMouse(e) {
-        lastClientX = e.clientX;
-
-        clearTimeout(numTimeOut);
+        lastClientXRef.current = e.clientX;
 
         document.addEventListener('mousemove', moveMouse);
 
@@ -72,29 +81,28 @@ const Slider = ({}) => {
       }
 
       function downMouseLine(e) {
-        if (lastClientX == 0) {
-          range = e.offsetX - rangeThumbRef.current.offsetWidth / 2;
-          lastClientX = e.clientX;
+        if (lastClientXRef.current == 0) {
+          rangeRef.current = e.offsetX - rangeThumbRef.current.offsetWidth / 2;
+          lastClientXRef.current = e.clientX;
         } else {
-          range += e.clientX - lastClientX;
-          lastClientX = e.clientX;
+          rangeRef.current += e.clientX - lastClientXRef.current;
+          lastClientXRef.current = e.clientX;
         }
 
-        if (range <= maxRangePx && range >= 0) {
-          rangeThumbRef.current.style.transform = `translateY(-50%) translateX(${range}px)`;
-          blueLineRef.current.style.transform = `translateX(${range}px)`;
-        } else if (range > maxRangePx) {
-          range = maxRangePx;
-          rangeThumbRef.current.style.transform = `translateY(-50%) translateX(${maxRangePx}px)`;
-          blueLineRef.current.style.transform = `translateX(${maxRangePx}px)`;
-        } else if (range < 0) {
-          range = 0;
-          rangeThumbRef.current.style.transform = `translateY(-50%) translateX(0px)`;
-          blueLineRef.current.style.transform = `translateX(0px)`;
+        if (
+          rangeRef.current <= maxRangePxRef.current &&
+          rangeRef.current >= 0
+        ) {
+          transformThumbAndBlueLine(rangeRef.current);
+        } else if (rangeRef.current > maxRangePxRef.current) {
+          rangeRef.current = maxRangePxRef.current;
+          transformThumbAndBlueLine(rangeRef.current);
+        } else if (rangeRef.current < 0) {
+          rangeRef.current = 0;
+          transformThumbAndBlueLine(rangeRef.current);
         }
 
-        const percentageOfRange = Math.round((range / maxRangePx) * 100);
-        rangeThumbNumRef.current.innerText = percentageOfRange;
+        createPercentageNum(rangeRef.current, maxRangePxRef.current);
 
         createThumbNum();
       }
@@ -115,42 +123,73 @@ const Slider = ({}) => {
 
   // Touch control
   useEffect(() => {
-    let maxRangePx = 0;
-    let range = 0;
-    let numTimeOut;
-    let lastClientX = 0;
+    if (rangeLineRef.current && rangeThumbRef.current) {
+      function moveTouch(e) {
+        rangeRef.current += e.targetTouches[0].clientX - lastClientXRef.current;
+        lastClientXRef.current = e.targetTouches[0].clientX;
+
+        if (
+          rangeRef.current <= maxRangePxRef.current &&
+          rangeRef.current >= 0
+        ) {
+          transformThumbAndBlueLine(rangeRef.current);
+        } else if (rangeRef.current > maxRangePxRef.current) {
+          rangeRef.current = maxRangePxRef.current;
+          transformThumbAndBlueLine(rangeRef.current);
+        } else if (rangeRef.current < 0) {
+          rangeRef.current = 0;
+          transformThumbAndBlueLine(rangeRef.current);
+        }
+
+        createPercentageNum(rangeRef.current, maxRangePxRef.current);
+
+        createThumbNum();
+      }
+
+      function startTouch(e) {
+        lastClientXRef.current = e.targetTouches[0].clientX;
+
+        document.addEventListener('touchmove', moveTouch);
+
+        createThumbNum();
+      }
+
+      function endTouch() {
+        document.removeEventListener('touchmove', moveTouch);
+      }
+
+      rangeThumbRef.current.addEventListener('touchstart', startTouch);
+      document.addEventListener('touchend', endTouch);
+      document.addEventListener('touchcancel', endTouch);
+
+      return () => {
+        if (rangeLineRef.current && rangeThumbRef.current) {
+          rangeThumbRef.current.removeEventListener('touchstart', startTouch);
+        }
+        document.removeEventListener('touchend', endTouch);
+        document.removeEventListener('touchcancel', endTouch);
+      };
+    }
   }, [rangeThumbRef.current, rangeThumbNumRef.current]);
 
+  //
+  useEffect(() => {
+    if (rangeLineRef.current && rangeThumbRef.current) {
+      maxRangePxRef.current =
+        rangeLineRef.current.offsetWidth - rangeThumbRef.current.offsetWidth;
+      createPercentageNum(rangeRef.current, maxRangePxRef.current);
+    }
+  }, []);
+
   return (
-    <div className="grid grid-cols-[min-content_1fr_min-content] items-center gap-4">
-      <div className="rounded-xl border border-solid border-gray-200 bg-alpha-light-900 px-4 py-2.5 text-base font-medium text-alpha-dark-700 shadow-sm">
-        0
-      </div>
-      <div className="relative">
-        <div
-          ref={rangeLineRef}
-          className="relative h-1.5 w-full overflow-hidden rounded-md bg-gray-200">
-          <div
-            ref={blueLineRef}
-            className="absolute right-full top-0 h-full w-full bg-blue-600"></div>
-        </div>
-        <div
-          ref={rangeThumbRef}
-          className="absolute left-0 top-1/2 flex -translate-y-1/2 items-center justify-center gap-0.5 rounded-[10px] border border-solid border-gray-400 bg-alpha-light-900 px-4 py-2 transition-none">
-          <div className="h-2.5 w-px rounded-xl bg-gray-400"></div>
-          <div className="h-2.5 w-px rounded-xl bg-gray-400"></div>
-          <div className="h-2.5 w-px rounded-xl bg-gray-400"></div>
-          <div
-            ref={rangeThumbNumRef}
-            className="invisible absolute bottom-full left-1/2 w-11 -translate-x-1/2 -translate-y-2 rounded-xl border border-solid border-gray-200 bg-alpha-light-900 py-1.5 text-center text-sm font-medium text-alpha-dark-700 opacity-0 shadow-sm transition-all duration-300">
-            0
-          </div>
-        </div>
-      </div>
-      <div className="rounded-xl border border-solid border-gray-200 bg-alpha-light-900 px-4 py-2.5 text-base font-medium text-alpha-dark-700 shadow-sm">
-        100
-      </div>
-    </div>
+    <SliderUI
+      minValue={minValue}
+      maxValue={maxValue}
+      rangeLineRef={rangeLineRef}
+      rangeThumbRef={rangeThumbRef}
+      rangeThumbNumRef={rangeThumbNumRef}
+      blueLineRef={blueLineRef}
+    />
   );
 };
 
